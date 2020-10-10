@@ -1,0 +1,41 @@
+version: "3"
+
+volumes:
+  mysql-data:
+    driver: local
+  server-node-modules:
+    driver: local
+
+services:
+  database:
+      image: mysql:latest
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: test
+        MYSQL_USER: test
+        MYSQL_PASSWORD: test
+      ports:
+        - 3306:3306
+      volumes:
+        - ./docker-sql:/docker-entrypoint-initdb.d
+
+
+  server:
+    container_name: tzone-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tzone-test
+    command: npm run start
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./server:/app/server
+    depends_on:
+      - database
+
