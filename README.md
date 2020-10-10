@@ -45,5 +45,11 @@ x-access-token:"...."
 ##### GET /api/addDummyaccounts - Creates dummy accounts with default passwords 
 
 
+## TODO
 
+- Add pagination
+- Linting
+- Tests
+- Proper Logging
+- ....
 
