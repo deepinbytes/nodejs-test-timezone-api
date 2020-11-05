@@ -1,4 +1,4 @@
-# Timezone Details
+# NodeJS Test App - Timezone DB API
 API to fetch timezone for the given country(s) with user authentication. Built with knex, JWT, Nodejs and Express
 
 
@@ -52,4 +52,8 @@ x-access-token:"...."
 - Tests
 - Proper Logging
 - ....
+
+## Others
+This project was developed under time constraints, and is not bug-free and requires much more fine tuning. 
+Please use issues for suggestions and bug reports.
 
